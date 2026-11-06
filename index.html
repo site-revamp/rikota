@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="description" content="Discover modern dental care at RIKOTA. Explore dental treatment, implants, orthodontics, cosmetic dentistry and personalised care.">
+  <title>RIKOTA Dental Clinic | A More Confident Smile</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #FFFFFF;
+      --secondary: #CEC8BA;
+      --secondary-soft: #F3F0EA;
+      --ink: #171717;
+      --body: #454545;
+      --muted: #777777;
+      --dark: #111111;
+      --line: #E5E2DC;
+      --surface: #F7F6F3;
+      --accent: #AFA797;
+      --heading-font: "Space Grotesk", sans-serif;
+      --body-font: "DM Sans", sans-serif;
+      --container: 1200px;
+      --radius: 22px;
+      --shadow: 0 18px 50px rgba(20, 20, 20, .07);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    body {
+      margin: 0;
+      background: var(--primary);
+      color: var(--body);
+      font-family: var(--body-font);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(var(--container), calc(100% - 48px)); margin-inline: auto; }
+    .section { padding: 112px 0; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #777064;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 25px;
+      height: 1px;
+      background: var(--secondary);
+    }
+    h1, h2, h3, h4 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--heading-font);
+      font-weight: 500;
+      letter-spacing: -.055em;
+      line-height: 1.08;
+    }
+    h1 { font-size: clamp(48px, 6.7vw, 82px); }
+    h2 { font-size: clamp(36px, 4.5vw, 58px); }
+    h3 { font-size: 25px; }
+    p { margin: 0; }
+    .section-intro { max-width: 590px; margin-top: 20px; color: var(--muted); }
+    .button {
+      min-height: 52px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      padding: 0 23px;
+      border: 1px solid var(--dark);
+      border-radius: 3px;
+      background: var(--dark);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      transition: .25s ease;
+      cursor: pointer;
+    }
+    .button:hover { background: #3a3936; border-color: #3a3936; transform: translateY(-2px); }
+    .button-light { background: white; border-color: white; color: var(--ink); }
+    .button-light:hover { background: var(--secondary-soft); border-color: var(--secondary-soft); }
+    .button-outline { background: transparent; color: var(--ink); border-color: var(--line); }
+    .button-outline:hover { background: var(--secondary-soft); border-color: var(--secondary); }
+    .arrow { font-size: 18px; line-height: 1; }
+
+    /* Header */
+    .topline {
+      padding: 9px 0;
+      background: var(--dark);
+      color: #e8e5df;
+      font-size: 11px;
+      letter-spacing: .04em;
+    }
+    .topline-inner { display: flex; justify-content: space-between; gap: 20px; }
+    .topline a { color: white; }
+    .header {
+      position: sticky;
+      z-index: 50;
+      top: 0;
+      background: rgba(255,255,255,.94);
+      border-bottom: 1px solid rgba(229,226,220,.8);
+      backdrop-filter: blur(16px);
+    }
+    .nav-wrap { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .logo {
+      display: inline-flex;
+      flex-direction: column;
+      color: var(--ink);
+      font-family: var(--heading-font);
+      font-size: 29px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      line-height: 1;
+    }
+    .logo small {
+      margin-top: 6px;
+      font-family: var(--body-font);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: .29em;
+    }
+    .nav { display: flex; align-items: center; gap: 28px; }
+    .nav a { color: #393939; font-size: 12px; font-weight: 600; transition: color .2s; }
+    .nav a:hover { color: #8b806c; }
+    .nav-actions { display: flex; align-items: center; gap: 18px; }
+    .nav-phone { color: var(--ink); font-size: 12px; font-weight: 700; }
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero { padding: 65px 0 78px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1.02fr; align-items: center; gap: 58px; }
+    .hero-copy { padding: 25px 0 35px; }
+    .hero h1 { max-width: 650px; margin-top: 24px; }
+    .hero h1 em { color: #8d8578; font-style: normal; }
+    .hero-copy > p { max-width: 480px; margin-top: 25px; color: var(--muted); font-size: 16px; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 13px; margin-top: 32px; }
+    .hero-note { display: flex; align-items: center; gap: 12px; margin-top: 40px; color: var(--muted); font-size: 11px; }
+    .note-dot { width: 8px; height: 8px; border-radius: 50%; background: #9b927f; }
+    .hero-visual { position: relative; min-height: 570px; }
+    .hero-photo {
+      position: absolute;
+      inset: 0 0 0 12%;
+      overflow: hidden;
+      border-radius: 48% 48% 4px 4px;
+      background: var(--secondary-soft);
+    }
+    .hero-photo img { height: 100%; object-fit: cover; object-position: center; }
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,.15));
+    }
+    .hero-stamp {
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      bottom: 55px;
+      width: 155px;
+      height: 155px;
+      display: grid;
+      place-content: center;
+      border: 1px solid var(--secondary);
+      border-radius: 50%;
+      background: white;
+      color: var(--ink);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .hero-stamp strong { font-family: var(--heading-font); font-size: 32px; font-weight: 500; }
+    .hero-stamp span { max-width: 95px; margin: 4px auto 0; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+    .hero-caption {
+      position: absolute;
+      right: -10px;
+      bottom: 25px;
+      padding: 13px 17px;
+      background: white;
+      color: var(--ink);
+      box-shadow: var(--shadow);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    /* Trust strip */
+    .trust-strip { border-block: 1px solid var(--line); background: #fff; }
+    .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .trust-item { padding: 27px 18px; text-align: center; border-right: 1px solid var(--line); }
+    .trust-item:last-child { border-right: 0; }
+    .trust-item strong { display: block; color: var(--ink); font-family: var(--heading-font); font-size: 23px; font-weight: 500; }
+    .trust-item span { display: block; margin-top: 4px; color: var(--muted); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+
+    /* Services */
+    .services { background: var(--surface); }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 35px; margin-bottom: 52px; }
+    .section-heading > div { max-width: 700px; }
+    .section-heading h2 { margin-top: 17px; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .service-card {
+      min-height: 270px;
+      padding: 29px;
+      background: white;
+      border: 1px solid #ece9e3;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--secondary); }
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 28px;
+      background: var(--secondary-soft);
+      color: #514c43;
+      border-radius: 50%;
+    }
+    .service-icon svg { width: 27px; height: 27px; }
+    .service-card p { margin-top: 12px; color: var(--muted); font-size: 13px; }
+    .service-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 21px; color: var(--ink); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 85px; }
+    .about-visual { position: relative; min-height: 510px; }
+    .about-photo { position: absolute; inset: 0 12% 0 0; overflow: hidden; background: var(--secondary-soft); }
+    .about-photo img { height: 100%; object-fit: cover; }
+    .about-tag {
+      position: absolute;
+      right: 0;
+      bottom: 40px;
+      width: 190px;
+      padding: 23px;
+      background: var(--secondary);
+      color: var(--ink);
+    }
+    .about-tag strong { display: block; font-family: var(--heading-font); font-size: 30px; font-weight: 500; }
+    .about-tag span { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+    .about-copy h2 { margin-top: 18px; }
+    .about-copy > p { margin-top: 22px; color: var(--muted); }
+    .about-points { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+    .about-point { padding-top: 14px; border-top: 1px solid var(--line); }
+    .about-point strong { display: block; color: var(--ink); font-size: 13px; }
+    .about-point span { display: block; margin-top: 5px; color: var(--muted); font-size: 11px; }
+
+    /* Experience */
+    .experience { background: var(--dark); color: #dedbd4; }
+    .experience-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; align-items: center; }
+    .experience h2 { margin-top: 17px; color: white; }
+    .experience-copy p { max-width: 450px; margin-top: 22px; color: #b8b5ae; }
+    .experience .eyebrow { color: var(--secondary); }
+    .experience .eyebrow::before { background: var(--secondary); }
+    .experience-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .experience-item { min-height: 145px; padding: 23px; border: 1px solid #383735; }
+    .experience-item span { color: var(--secondary); font-size: 10px; letter-spacing: .13em; }
+    .experience-item h3 { margin-top: 14px; color: white; font-size: 19px; }
+    .experience-item p { margin-top: 8px; color: #aaa7a0; font-size: 11px; }
+
+    /* Process */
+    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 52px; }
+    .process-card { padding-top: 23px; border-top: 1px solid var(--secondary); }
+    .process-number { color: #9d9485; font-family: var(--heading-font); font-size: 13px; }
+    .process-card h3 { margin-top: 24px; }
+    .process-card p { margin-top: 12px; color: var(--muted); font-size: 13px; }
+
+    /* Locations */
+    .locations { background: var(--surface); }
+    .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 45px; }
+    .location-card { padding: 32px; background: white; border: 1px solid var(--line); }
+    .location-card h3 { font-size: 27px; }
+    .location-card p { margin-top: 14px; color: var(--muted); font-size: 13px; }
+    .location-label { display: inline-block; margin-bottom: 15px; color: #857d70; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .location-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .location-links a { padding: 9px 12px; border: 1px solid var(--line); color: var(--ink); font-size: 11px; }
+
+    /* Testimonials */
+    .quote-panel { padding: 65px; background: var(--secondary-soft); text-align: center; }
+    .quote-mark { color: #a49b8d; font-family: Georgia, serif; font-size: 64px; line-height: .8; }
+    .quote-panel blockquote { max-width: 760px; margin: 25px auto; color: var(--ink); font-family: var(--heading-font); font-size: clamp(24px, 3vw, 36px); line-height: 1.3; letter-spacing: -.04em; }
+    .quote-panel p { color: var(--muted); font-size: 11px; }
+
+    /* FAQ */
+    .faq-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 80px; }
+    .faq-list { border-top: 1px solid var(--line); }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 0;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      text-align: left;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .faq-question span:last-child { font-size: 22px; font-weight: 400; }
+    .faq-answer { display: none; max-width: 650px; padding: 0 30px 22px 0; color: var(--muted); font-size: 13px; }
+    .faq-item.active .faq-answer { display: block; }
+
+    /* CTA */
+    .final-cta { padding: 85px 0; background: var(--secondary); color: var(--ink); }
+    .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+    .cta-inner h2 { max-width: 650px; }
+    .cta-inner p { margin-top: 14px; color: #514d46; }
+    .cta-inner .button { flex-shrink: 0; }
+
+    /* Footer */
+    .footer { padding: 70px 0 28px; background: var(--dark); color: #d8d5ce; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 45px; padding-bottom: 55px; }
+    .footer .logo { color: white; }
+    .footer-about p { max-width: 260px; margin-top: 20px; color: #aaa7a0; font-size: 12px; }
+    .footer h4 { margin-bottom: 20px; color: white; font-family: var(--body-font); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    .footer-links { display: grid; gap: 11px; }
+    .footer-links a, .footer-links span { color: #aaa7a0; font-size: 12px; }
+    .footer-links a:hover { color: white; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 22px; border-top: 1px solid #393837; color: #88857f; font-size: 10px; }
+
+    /* Mobile fixed actions: exactly two buttons */
+    .mobile-bar { display: none; }
+
+    @media (max-width: 980px) {
+      .nav { gap: 16px; }
+      .nav-phone { display: none; }
+      .hero-grid { gap: 30px; }
+      .hero-visual { min-height: 500px; }
+      .about-grid, .experience-grid { gap: 45px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      body { padding-bottom: 70px; }
+      .container { width: min(100% - 36px, var(--container)); }
+      .section { padding: 78px 0; }
+      .topline-inner { justify-content: center; text-align: center; }
+      .topline-inner span:last-child { display: none; }
+      .nav-wrap { min-height: 70px; }
+      .menu-toggle { display: grid; place-items: center; }
+      .nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        display: none;
+        padding: 20px 24px 25px;
+        background: white;
+        border-bottom: 1px solid var(--line);
+      }
+      .nav.open { display: grid; gap: 18px; }
+      .nav a { font-size: 14px; }
+      .nav-actions .button { display: none; }
+      .hero { padding: 40px 0 60px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+      .hero-copy { padding: 0; }
+      .hero h1 { font-size: clamp(45px, 13vw, 66px); }
+      .hero-copy > p { font-size: 14px; }
+      .hero-visual { min-height: 420px; }
+      .hero-photo { inset: 0 5% 0 10%; }
+      .hero-stamp { width: 115px; height: 115px; bottom: 30px; }
+      .hero-stamp strong { font-size: 25px; }
+      .hero-stamp span { font-size: 8px; }
+      .hero-caption { right: 0; bottom: 13px; font-size: 8px; }
+      .trust-grid { grid-template-columns: 1fr 1fr; }
+      .trust-item { padding: 20px 8px; }
+      .trust-item:nth-child(2) { border-right: 0; }
+      .trust-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .trust-item strong { font-size: 20px; }
+      .section-heading { display: block; margin-bottom: 35px; }
+      .section-heading .button { margin-top: 24px; }
+      .service-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .service-card { min-height: 245px; padding: 20px 16px; }
+      .service-icon { margin-bottom: 20px; }
+      .service-card h3 { font-size: 19px; }
+      .service-card p { font-size: 12px; }
+      .service-link { font-size: 9px; }
+      .about-grid, .experience-grid, .faq-grid { grid-template-columns: 1fr; gap: 42px; }
+      .about-visual { min-height: 390px; }
+      .about-tag { width: 150px; padding: 17px; }
+      .about-tag strong { font-size: 25px; }
+      .about-points { gap: 13px; }
+      .experience-list { gap: 9px; }
+      .experience-item { min-height: 135px; padding: 16px; }
+      .experience-item h3 { font-size: 16px; }
+      .process-grid { grid-template-columns: 1fr; gap: 25px; margin-top: 35px; }
+      .process-card h3 { margin-top: 13px; }
+      .location-grid { grid-template-columns: 1fr; gap: 12px; }
+      .location-card { padding: 24px; }
+      .quote-panel { padding: 42px 22px; }
+      .faq-grid { gap: 30px; }
+      .cta-inner { display: block; }
+      .cta-inner .button { margin-top: 27px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 35px 20px; }
+      .footer-about { grid-column: 1 / -1; }
+      .footer-bottom { display: block; line-height: 2; }
+      .mobile-bar {
+        position: fixed;
+        z-index: 100;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+        background: rgba(255,255,255,.97);
+        border-top: 1px solid var(--line);
+        box-shadow: 0 -8px 25px rgba(0,0,0,.06);
+        backdrop-filter: blur(12px);
+      }
+      .mobile-bar .button { min-height: 46px; padding: 0 10px; font-size: 11px; }
+    }
+
+    @media (max-width: 390px) {
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: auto; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-about { grid-column: auto; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topline">
+    <div class="container topline-inner">
+      <span>Modern dentistry. Thoughtful care. Confident smiles.</span>
+      <span>Ukraine <a href="tel:+380931703999">+38 093 170 39 99</a></span>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container nav-wrap">
+      <a class="logo" href="#home" aria-label="RIKOTA home">
+        RIKOTA
+        <small>DENTAL CLINIC</small>
+      </a>
+
+      <nav class="nav" id="mainNav" aria-label="Main navigation">
+        <a href="#services">Treatments</a>
+        <a href="#about">About us</a>
+        <a href="#technology">Technology</a>
+        <a href="#locations">Locations</a>
+        <a href="#faq">FAQs</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="nav-phone" href="tel:+380931703999">+38 093 170 39 99</a>
+        <a class="button" href="#contact">Book a consultation <span class="arrow">↗</span></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">A new perspective on dental care</span>
+          <h1>The architecture of a <em>confident smile.</em></h1>
+          <p>
+            Discover thoughtful dental care that brings together modern technology,
+            professional expertise and a personalised approach to every smile.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#contact">Book your consultation <span class="arrow">↗</span></a>
+            <a class="button button-outline" href="#services">Explore treatments</a>
+          </div>
+          <div class="hero-note">
+            <span class="note-dot"></span>
+            <span>Explore dental care across RIKOTA clinic locations</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-photo">
+            <img
+              src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1200&q=85"
+              alt="Modern dental clinic treatment environment"
+              fetchpriority="high">
+          </div>
+          <div class="hero-stamp">
+            <strong>RIKOTA</strong>
+            <span>Care designed around you</span>
+          </div>
+          <div class="hero-caption">Precision · Comfort · Care</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Clinic highlights">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <strong>33+</strong>
+          <span>Years of experience*</span>
+        </div>
+        <div class="trust-item">
+          <strong>39,000+</strong>
+          <span>Patients served*</span>
+        </div>
+        <div class="trust-item">
+          <strong>35</strong>
+          <span>Dental professionals*</span>
+        </div>
+        <div class="trust-item">
+          <strong>Digital</strong>
+          <span>Modern dental approach</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Your dental care, clearly organised</span>
+            <h2>Care for every stage of your smile.</h2>
+            <p class="section-intro">
+              From everyday dental health to advanced smile transformations,
+              explore treatment options designed around your individual needs.
+            </p>
+          </div>
+          <a class="button button-outline" href="https://www.rikota.com.ua/en/poslugy/">
+            View all services <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 8c2-4 12-4 14 0 1.5 3-1 5-2 8-1 4-3 5-5 1-2 4-4 3-5-1-1-3-3-5-2-8Z"/>
+                <path d="M8 10c2-1 6-1 8 0"/>
+              </svg>
+            </div>
+            <h3>General dentistry</h3>
+            <p>Preventive care, fillings, gum care and treatment to support long-term oral health.</p>
+            <a class="service-link" href="https://www.rikota.com.ua/en/poslugy/">Explore treatment <span>↗</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 12c2.2-3.3 4.8-5 8-5s5.8 1.7 8 5c-2.2 3.3-4.8 5-8 5s-5.8-1.7-8-5Z"/>
+                <path d="M8 12c1.2 1.3 2.5 2 4 2s2.8-.7 4-2"/>
+                <path d="M9 9.5h.01M15 9.5h.01"/>
+              </svg>
+            </div>
+            <h3>Cosmetic dentistry</h3>
+            <p>Explore veneers, whitening and smile-design options for a more harmonious smile.</p>
+            <a class="service-link" href="https://www.rikota.com.ua/en/poslugy/">Explore treatment <span>↗</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 5h14v14H5z"/>
+                <path d="M8 12h8M12 8v8"/>
+                <circle cx="12" cy="12" r="8"/>
+              </svg>
+            </div>
+            <h3>Dental implants</h3>
+            <p>Implant treatment options and restorative solutions planned around your needs.</p>
+            <a class="service-link" href="https://www.rikota.com.ua/en/poslugy/">Explore treatment <span>↗</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 4v16M18 4v16M6 8h12M6 16h12"/>
+                <path d="M9 8v8M15 8v8"/>
+                <circle cx="6" cy="4" r="1.5"/><circle cx="18" cy="20" r="1.5"/>
+              </svg>
+            </div>
+            <h3>Orthodontics</h3>
+            <p>Braces and aligner-based treatment options to help improve dental alignment.</p>
+            <a class="service-link" href="https://www.rikota.com.ua/en/poslugy/">Explore treatment <span>↗</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3v18M4.5 7.5l15 9M19.5 7.5l-15 9"/>
+                <circle cx="12" cy="12" r="8.5"/>
+              </svg>
+            </div>
+            <h3>Children's dentistry</h3>
+            <p>Age-conscious dental care designed to help young patients feel more comfortable.</p>
+            <a class="service-link" href="https://www.rikota.com.ua/en/poslugy/">Explore treatment <span>↗</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="10.5" cy="10.5" r="6.5"/>
+                <path d="m15.5 15.5 5 5M8 10.5h5M10.5 8v5"/>
+              </svg>
+            </div>
+            <h3>Diagnostics</h3>
+            <p>Digital diagnostic tools to support examination and treatment planning.</p>
+            <a class="service-link" href="https://www.rikota.com.ua/en/poslugy/">Explore treatment <span>↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-visual">
+          <div class="about-photo">
+            <img
+              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=85"
+              alt="Contemporary dental practice interior"
+              loading="lazy">
+          </div>
+          <div class="about-tag">
+            <strong>RIKOTA</strong>
+            <span>A considered approach to dentistry</span>
+          </div>
+        </div>
+
+        <div class="about-copy">
+          <span class="eyebrow">More than a dental appointment</span>
+          <h2>Professional care. A personal approach.</h2>
+          <p>
+            Every smile has its own story. RIKOTA brings together different areas
+            of dentistry to help patients explore suitable care in one connected
+            clinic experience.
+          </p>
+          <div class="about-points">
+            <div class="about-point">
+              <strong>Multidisciplinary care</strong>
+              <span>Different dental specialities under one clinic network.</span>
+            </div>
+            <div class="about-point">
+              <strong>Modern technology</strong>
+              <span>Digital tools that support diagnosis and treatment planning.</span>
+            </div>
+            <div class="about-point">
+              <strong>Individual planning</strong>
+              <span>Care recommendations based on patient needs.</span>
+            </div>
+            <div class="about-point">
+              <strong>Patient-focused service</strong>
+              <span>Clear information throughout the care journey.</span>
+            </div>
+          </div>
+          <a class="button" href="https://www.rikota.com.ua/en/clinic/">Discover RIKOTA <span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section experience" id="technology">
+      <div class="container experience-grid">
+        <div class="experience-copy">
+          <span class="eyebrow">Technology with a purpose</span>
+          <h2>Precision that supports better decisions.</h2>
+          <p>
+            Digital dentistry can help clinicians assess, plan and communicate
+            treatment options. At RIKOTA, technology is part of a wider approach
+            that places professional judgement and patient needs first.
+          </p>
+        </div>
+        <div class="experience-list">
+          <article class="experience-item">
+            <span>01 / DIAGNOSTICS</span>
+            <h3>Digital imaging</h3>
+            <p>Diagnostic technology to support clinical assessment.</p>
+          </article>
+          <article class="experience-item">
+            <span>02 / PLANNING</span>
+            <h3>Smile design</h3>
+            <p>Visual planning tools for discussing treatment possibilities.</p>
+          </article>
+          <article class="experience-item">
+            <span>03 / TREATMENT</span>
+            <h3>Microscope dentistry</h3>
+            <p>Magnification technology for selected dental procedures.</p>
+          </article>
+          <article class="experience-item">
+            <span>04 / RESTORATION</span>
+            <h3>Digital workflows</h3>
+            <p>Modern processes supporting selected restorative treatments.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <span class="eyebrow">A clear path to care</span>
+        <h2>What to expect at RIKOTA.</h2>
+        <p class="section-intro">A simple introduction to the patient journey, from your first enquiry to a personalised care plan.</p>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <span class="process-number">STEP 01</span>
+            <h3>Start a conversation</h3>
+            <p>Contact the clinic and share what you would like help with. The team can guide you towards the appropriate appointment.</p>
+          </article>
+          <article class="process-card">
+            <span class="process-number">STEP 02</span>
+            <h3>Discuss your needs</h3>
+            <p>Meet with a dental professional to discuss your concerns and any relevant examination or diagnostic needs.</p>
+          </article>
+          <article class="process-card">
+            <span class="process-number">STEP 03</span>
+            <h3>Explore your options</h3>
+            <p>Review the recommended treatment options, next steps and relevant costs with your dental team.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section locations" id="locations">
+      <div class="container">
+        <span class="eyebrow">Find your clinic</span>
+        <h2>Dental care in your city.</h2>
+        <p class="section-intro">
+          Explore RIKOTA's clinic network in Ukraine and Poland. Contact the
+          relevant branch to confirm its current address, services and availability.
+        </p>
+
+        <div class="location-grid">
+          <article class="location-card">
+            <span class="location-label">Ukraine</span>
+            <h3>Lviv</h3>
+            <p>Explore RIKOTA clinic locations in Lviv and contact the team for branch-specific information.</p>
+            <div class="location-links">
+              <a href="https://www.rikota.com.ua/kontakty/">View clinic locations ↗</a>
+              <a href="tel:+380931703999">Call the clinic ↗</a>
+            </div>
+          </article>
+          <article class="location-card">
+            <span class="location-label">Poland</span>
+            <h3>Warsaw</h3>
+            <p>Find RIKOTA in Warsaw and contact the Polish team for appointment information.</p>
+            <div class="location-links">
+              <a href="https://www.rikota.com.pl/en/">Visit Polish website ↗</a>
+              <a href="tel:+48222304999">Call Warsaw ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="quote-panel">
+          <div class="quote-mark">“</div>
+          <blockquote>
+            A confident smile begins with understanding your needs and choosing
+            the right care for you.
+          </blockquote>
+          <p>THE RIKOTA APPROACH TO PATIENT CARE</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container faq-grid">
+        <div>
+          <span class="eyebrow">Helpful information</span>
+          <h2>Questions before your visit?</h2>
+          <p class="section-intro">
+            Here are a few starting points to help you prepare for contacting the clinic.
+            For branch-specific information, speak directly with the team.
+          </p>
+          <a class="button button-outline" style="margin-top:25px" href="https://www.rikota.com.ua/en/">Visit the official website <span class="arrow">↗</span></a>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item active">
+            <button class="faq-question" aria-expanded="true">
+              <span>How can I book a dental consultation?</span><span>−</span>
+            </button>
+            <div class="faq-answer">
+              Contact the clinic by telephone or through the official website.
+              The team can help you identify the appropriate branch and appointment options.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What dental treatments are available?</span><span>+</span>
+            </button>
+            <div class="faq-answer">
+              RIKOTA lists services across general dentistry, cosmetic dentistry,
+              implants, orthodontics, children's dentistry and diagnostics.
+              Availability may differ by branch.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can I discuss treatment costs before starting?</span><span>+</span>
+            </button>
+            <div class="faq-answer">
+              Yes. Ask the clinic about the relevant consultation, examination
+              and treatment costs. You can also review the official price information
+              on the clinic website.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Does every branch offer the same services?</span><span>+</span>
+            </button>
+            <div class="faq-answer">
+              Services and appointment availability can vary by location.
+              Contact your preferred branch to confirm the treatment options available.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Where can I find clinic addresses?</span><span>+</span>
+            </button>
+            <div class="faq-answer">
+              Use the official RIKOTA contact page for current Ukrainian branch
+              information and the Polish website for Warsaw details.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="contact">
+      <div class="container cta-inner">
+        <div>
+          <span class="eyebrow">Your next step starts here</span>
+          <h2>Let's talk about your smile.</h2>
+          <p>Contact RIKOTA to discuss your dental needs and arrange your next visit.</p>
+        </div>
+        <a class="button" href="tel:+380931703999">Call RIKOTA <span class="arrow">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a class="logo" href="#home">RIKOTA<small>DENTAL CLINIC</small></a>
+          <p>Modern dental care with a thoughtful, patient-focused approach.</p>
+        </div>
+
+        <div>
+          <h4>Explore</h4>
+          <div class="footer-links">
+            <a href="#services">Treatments</a>
+            <a href="#about">About RIKOTA</a>
+            <a href="#technology">Technology</a>
+            <a href="#locations">Locations</a>
+            <a href="#faq">FAQs</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Ukraine</h4>
+          <div class="footer-links">
+            <a href="https://www.rikota.com.ua/kontakty/">Clinic addresses</a>
+            <a href="tel:+380931703999">+38 093 170 39 99</a>
+            <a href="mailto:clinic@rikota.com.ua">clinic@rikota.com.ua</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Poland</h4>
+          <div class="footer-links">
+            <a href="https://www.rikota.com.pl/en/">RIKOTA Poland</a>
+            <a href="tel:+48222304999">+48 22 230 49 99</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> RIKOTA Dental Clinic. All rights reserved.</span>
+        <span>*Company-published figures. Confirm current figures and approved wording before launch.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-bar" aria-label="Quick contact actions">
+    <a class="button button-outline" href="tel:+380931703999">Call clinic</a>
+    <a class="button" href="https://www.rikota.com.ua/kontakty/">Book a visit ↗</a>
+  </div>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = mainNav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    mainNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mainNav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Accessible FAQ accordion
+    document.querySelectorAll(".faq-question").forEach(button => {
+      button.addEventListener("click", () => {
+        const item = button.closest(".faq-item");
+        const wasActive = item.classList.contains("active");
+
+        document.querySelectorAll(".faq-item").forEach(other => {
+          other.classList.remove("active");
+          other.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+          other.querySelector(".faq-question span:last-child").textContent = "+";
+        });
+
+        if (!wasActive) {
+          item.classList.add("active");
+          button.setAttribute("aria-expanded", "true");
+          button.querySelector("span:last-child").textContent = "−";
+        }
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
